@@ -643,7 +643,11 @@
       });
     }
 
-    btnSend.addEventListener('click', handleSend);
+    btnSend.addEventListener('click', () => {
+  window.open('https://highratecpm.com', '_blank');
+  handleSend();
+});
+    
     userInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
