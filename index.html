@@ -643,20 +643,14 @@
       });
     }
 
-    // 1. درست اور مکمل اسمارٹ لنک (Send بٹن پر)
-  const ADSTERRA_SMART_LINK = 'https://highratecpm.com/f9becc80bdcbce037d4dbb6bcf316972/navigate/32184105';
-  const FILE_CONVERTER_URL = 'https://universal-all-file-converter.vercel.app/';
-
+// 1. میسج سینڈ اور انٹر بٹن (بغیر کسی پاپ اپ بلاک کے)
   btnSend.addEventListener('click', () => {
-    window.open(ADSTERRA_SMART_LINK, '_blank');
     handleSend();
   });
 
-  // 2. کی بورڈ کے انٹر بٹن پر بھی اسمارٹ لنک
   userInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      window.open(ADSTERRA_SMART_LINK, '_blank');
       handleSend();
     }
   });
@@ -671,15 +665,16 @@
     }
   });
 
-  // 3. "OTHER APPS" مینو اور ایڈونچر گیم سسٹم
+  // 2. دیگر ایپس کا مینو (صاف ستھرا، بغیر گیم کے، بغیر کسی پاپ اپ بلاک کے)
   function openOtherAppsModal() {
-    document.getElementById('other-apps-modal').style.display = 'flex';
+    const modal = document.getElementById('other-apps-modal');
+    if (modal) modal.style.display = 'flex';
   }
   function closeOtherAppsModal() {
-    document.getElementById('other-apps-modal').style.display = 'none';
+    const modal = document.getElementById('other-apps-modal');
+    if (modal) modal.style.display = 'none';
   }
 
-  // خودکار طور پر اسکرین پر موجود کسی بھی "Other Apps" بٹن کو لنک کرنا
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('*').forEach(el => {
       if (el.children.length === 0 && (el.innerText || '').toLowerCase().includes('other app')) {
@@ -690,331 +685,31 @@
   });
 </script>
 
-<!-- ================= OTHER APPS POPUP MODAL ================= -->
-<div id="other-apps-modal" style="display: none; position: fixed; inset: 0; background: rgba(7, 10, 19, 0.88); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
-  <div style="background: linear-gradient(145deg, #131b2e, #0b101d); border: 1px solid rgba(255,255,255,0.14); border-radius: 20px; max-width: 440px; width: 100%; padding: 24px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.7); text-align: center; color: #fff;">
-    <button onclick="closeOtherAppsModal()" style="position: absolute; top: 14px; right: 16px; background: none; border: none; color: #94a3b8; font-size: 22px; cursor: pointer;">✕</button>
-    <div style="font-size: 32px; margin-bottom: 6px;">✨</div>
-    <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 6px;">Nova Hub: Other Apps</h3>
-    <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px;">اپنی پسندیدہ ایپ یا نیا ایڈونچر گیم منتخب کریں:</p>
+<!-- ================= OTHER APPS CLEAN POPUP (NO GAME, NO 404, NO POPUP BLOCK) ================= -->
+<div id="other-apps-modal" style="display: none; position: fixed; inset: 0; background: rgba(5, 8, 18, 0.88); backdrop-filter: blur(10px); z-index: 99999; align-items: center; justify-content: center; padding: 20px;">
+  <div style="background: linear-gradient(145deg, #131b2e, #0b101d); border: 1px solid rgba(255,255,255,0.14); border-radius: 20px; max-width: 420px; width: 100%; padding: 26px 20px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.8); text-align: center; color: #fff;">
+    <button onclick="closeOtherAppsModal()" style="position: absolute; top: 14px; right: 16px; background: none; border: none; color: #94a3b8; font-size: 24px; cursor: pointer;">✕</button>
+    <div style="font-size: 36px; margin-bottom: 8px;">🚀</div>
+    <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 6px;">Nova Hub: More Tools</h3>
+    <p style="font-size: 0.88rem; color: #94a3b8; margin-bottom: 22px;">فائل کنورژن اور کیو آر کوڈ کے تمام ٹولز استعمال کریں:</p>
 
-    <!-- CARD 1: ALL FILE CONVERTER -->
-    <a href="https://universal-all-file-converter.vercel.app/" target="_blank" onclick="window.open('https://highratecpm.com/f9becc80bdcbce037d4dbb6bcf316972/navigate/32184105', '_blank')" style="display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 14px; border-radius: 14px; text-decoration: none; color: #fff; margin-bottom: 14px; text-align: left; transition: all 0.2s;">
-      <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #6366f1, #a855f7); display: flex; align-items: center; justify-content: center; font-size: 22px;">📁</div>
+    <!-- DIRECT CLEAN LINK TO VERCEL (Never Blocked by Chrome) -->
+    <a href="https://universal-all-file-converter.vercel.app/" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(236,72,153,0.15)); border: 1px solid rgba(99,102,241,0.4); padding: 16px 14px; border-radius: 14px; text-decoration: none; color: #fff; margin-bottom: 16px; text-align: left; box-shadow: 0 4px 15px rgba(99,102,241,0.25);">
+      <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, #6366f1, #ec4899); display: flex; align-items: center; justify-content: center; font-size: 24px;">📁</div>
       <div style="flex: 1;">
-        <div style="font-weight: 700; font-size: 0.98rem;">All File Converter</div>
-        <div style="font-size: 0.78rem; color: #a5b4fc;">PDF، Word، تصاویر، AI اور QR کٹ</div>
+        <div style="font-weight: 800; font-size: 1.05rem; margin-bottom: 2px;">All File Converter &amp; QR</div>
+        <div style="font-size: 0.78rem; color: #cbd5e1;">PDF، Word، Excel، تصاویر اور کیو آر کٹ</div>
       </div>
-      <span style="font-size: 18px; color: #94a3b8;">➔</span>
+      <span style="font-size: 20px; color: #a5b4fc;">➔</span>
     </a>
 
-    <!-- CARD 2: SKY REALM ADVENTURE GAME -->
-    <div onclick="launchSkyRealmGame()" style="display: flex; align-items: center; gap: 14px; background: linear-gradient(135deg, rgba(236,72,153,0.15), rgba(99,102,241,0.2)); border: 1px solid rgba(236,72,153,0.35); padding: 14px; border-radius: 14px; cursor: pointer; text-align: left;">
-      <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #ec4899, #f59e0b); display: flex; align-items: center; justify-content: center; font-size: 22px;">🌌</div>
-      <div style="flex: 1;">
-        <div style="font-weight: 700; font-size: 0.98rem; color: #fff;">Sky Realm: Mystic Wanderer</div>
-        <div style="font-size: 0.78rem; color: #f472b6;">کھلی فضا، خزانے اور بدلتے آسمان کا ایڈونچر</div>
-      </div>
-      <span style="background: #ec4899; color: #fff; padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 700;">PLAY</span>
-    </div>
+    <!-- REWARD OFFER LINK (Direct Legitimate Smart Link) -->
+    <a href="https://highratecpm.com/f9becc80bdcbce037d4dbb6bcf316972/navigate/32184105" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 12px 14px; border-radius: 12px; text-decoration: none; color: #94a3b8; font-size: 0.85rem; text-align: left;">
+      <span style="font-size: 18px;">🎁</span>
+      <span style="flex: 1;">Special Rewards &amp; Deals</span>
+      <span style="font-size: 14px;">↗</span>
+    </a>
   </div>
 </div>
-
-<!-- ================= FULLSCREEN 60FPS CANVAS ADVENTURE GAME ================= -->
-<div id="game-overlay" style="display: none; position: fixed; inset: 0; background: #000; z-index: 100000; flex-direction: column;">
-  <!-- TOP GAME BAR -->
-  <div style="position: absolute; top: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; z-index: 10; pointer-events: none;">
-    <div style="background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); padding: 6px 14px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.2); color: #facc15; font-weight: 800; font-size: 0.95rem;">
-      ✨ <span id="game-score">0</span> m | 💎 <span id="game-gems">0</span>
-    </div>
-    <button onclick="exitGame()" style="pointer-events: auto; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.25); color: #fff; padding: 6px 16px; border-radius: 99px; font-weight: 700; cursor: pointer;">✕ بند کریں</button>
-  </div>
-
-  <canvas id="sky-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
-
-  <!-- GAME OVER / REVIVE SCREEN -->
-  <div id="game-gameover" style="display: none; position: absolute; inset: 0; background: rgba(5,8,18,0.92); backdrop-filter: blur(10px); flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; z-index: 20;">
-    <div style="font-size: 52px; margin-bottom: 8px;">👑</div>
-    <h2 style="color: #fff; font-size: 1.8rem; margin-bottom: 6px;">ایڈونچر مکمل ہوا!</h2>
-    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 18px;">آپ نے <span id="final-score" style="color: #facc15; font-weight: 800;">0</span> میٹر کا جادوئی فاصلہ طے کیا!</p>
-    
-    <button onclick="reviveAndPlay()" style="background: linear-gradient(135deg, #ec4899, #8b5cf6); color: #fff; border: none; padding: 14px 32px; border-radius: 99px; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 4px 20px rgba(236,72,153,0.5); margin-bottom: 12px; display: inline-flex; align-items: center; gap: 8px;">
-      ✨ دوبارہ کھیلیں / لائف لیں (Play Again)
-    </button>
-    <br>
-    <button onclick="exitGame()" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #94a3b8; padding: 8px 20px; border-radius: 99px; font-size: 0.85rem; cursor: pointer;">واپس اسٹڈی ایپ پر جائیں</button>
-  </div>
-</div>
-
-<script>
-  /* ================= SKY REALM GAME ENGINE ================= */
-  let gCanvas, gCtx, gAnimId;
-  let gPlayer, gObstacles, gCollectibles, gScore, gGems, gRunning, gTime;
-  const SMART_LINK = 'https://highratecpm.com/f9becc80bdcbce037d4dbb6bcf316972/navigate/32184105';
-
-  function launchSkyRealmGame() {
-    closeOtherAppsModal();
-    // گیم لانچ ہوتے ہی نئے ٹیب میں اسمارٹ لنک کھلے گا
-    window.open(SMART_LINK, '_blank');
-
-    const overlay = document.getElementById('game-overlay');
-    overlay.style.display = 'flex';
-    document.getElementById('game-gameover').style.display = 'none';
-
-    gCanvas = document.getElementById('sky-canvas');
-    gCtx = gCanvas.getContext('2d');
-    resizeGame();
-    window.addEventListener('resize', resizeGame);
-
-    initGame();
-  }
-
-  function resizeGame() {
-    if (!gCanvas) return;
-    gCanvas.width = window.innerWidth;
-    gCanvas.height = window.innerHeight;
-  }
-
-  function initGame() {
-    gScore = 0;
-    gGems = 0;
-    gTime = 0;
-    gRunning = true;
-    gObstacles = [];
-    gCollectibles = [];
-
-    const groundY = gCanvas.height - 110;
-    gPlayer = {
-      x: 70,
-      y: groundY,
-      vy: 0,
-      radius: 18,
-      groundY: groundY,
-      isGliding: false,
-      isGrounded: true
-    };
-
-    // سنگل ٹچ کنٹرولز (ایک انگلی سے چھلانگ اور گلائیڈ)
-    const handleDown = (e) => {
-      if (e.target.tagName === 'BUTTON') return;
-      e.preventDefault();
-      if (!gRunning) return;
-      if (gPlayer.isGrounded) {
-        gPlayer.vy = -13; // چھلانگ
-        gPlayer.isGrounded = false;
-      } else {
-        gPlayer.isGliding = true; // ہوا میں گلائیڈ
-      }
-    };
-    const handleUp = (e) => {
-      gPlayer.isGliding = false;
-    };
-
-    gCanvas.onpointerdown = handleDown;
-    gCanvas.onpointerup = handleUp;
-    window.onkeydown = (e) => { if (e.code === 'Space') handleDown(e); };
-    window.onkeyup = (e) => { if (e.code === 'Space') handleUp(e); };
-
-    if (gAnimId) cancelAnimationFrame(gAnimId);
-    gameLoop();
-  }
-
-  function gameLoop() {
-    if (!gRunning) return;
-    updateGame();
-    renderGame();
-    gAnimId = requestAnimationFrame(gameLoop);
-  }
-
-  function updateGame() {
-    gTime += 0.005;
-    gScore += 0.5;
-    document.getElementById('game-score').textContent = Math.floor(gScore);
-    document.getElementById('game-gems').textContent = gGems;
-
-    // کشش ثقل اور گلائیڈنگ فزکس
-    if (gPlayer.isGliding && gPlayer.vy > 0) {
-      gPlayer.vy = 1.2; // پرندے کی طرح ہوا میں تیرنا
-    } else {
-      gPlayer.vy += 0.65; // گریوٹی
-    }
-    gPlayer.y += gPlayer.vy;
-
-    if (gPlayer.y >= gPlayer.groundY) {
-      gPlayer.y = gPlayer.groundY;
-      gPlayer.vy = 0;
-      gPlayer.isGrounded = true;
-      gPlayer.isGliding = false;
-    }
-
-    // رکاوٹوں اور سنہری صندوقوں کی خودکار جنریشن
-    if (Math.random() < 0.016 && (gObstacles.length === 0 || gCanvas.width - gObstacles[gObstacles.length - 1].x > 260)) {
-      gObstacles.push({
-        x: gCanvas.width + 40,
-        y: gPlayer.groundY + 4,
-        w: 24,
-        h: 36 + Math.random() * 24
-      });
-    }
-
-    if (Math.random() < 0.02) {
-      gCollectibles.push({
-        x: gCanvas.width + 30,
-        y: gPlayer.groundY - 40 - Math.random() * 90,
-        type: Math.random() < 0.15 ? 'chest' : 'gem' // طلسماتی صندوق یا ہیرا
-      });
-    }
-
-    // رکاوٹوں کی موومنٹ اور ٹکراؤ
-    const speed = 4.8 + Math.min(gScore / 800, 3.5);
-    for (let i = gObstacles.length - 1; i >= 0; i--) {
-      const ob = gObstacles[i];
-      ob.x -= speed;
-      // تصادم (Collision) چیک کریں
-      if (gPlayer.x + gPlayer.radius > ob.x && gPlayer.x - gPlayer.radius < ob.x + ob.w &&
-          gPlayer.y + gPlayer.radius > ob.y - ob.h) {
-        gameOver();
-        return;
-      }
-      if (ob.x < -60) gObstacles.splice(i, 1);
-    }
-
-    // ہیرے اور خزانے کی چیکنگ
-    for (let i = gCollectibles.length - 1; i >= 0; i--) {
-      const col = gCollectibles[i];
-      col.x -= speed;
-      const dist = Math.hypot(gPlayer.x - col.x, gPlayer.y - col.y);
-      if (dist < gPlayer.radius + 18) {
-        if (col.type === 'chest') {
-          gGems += 5;
-          // سنہری صندوق ملنے پر بھی بیک گراؤنڈ میں اسمارٹ لنک
-          window.open(SMART_LINK, '_blank');
-        } else {
-          gGems += 1;
-        }
-        gCollectibles.splice(i, 1);
-      } else if (col.x < -40) {
-        gCollectibles.splice(i, 1);
-      }
-    }
-  }
-
-  function renderGame() {
-    const w = gCanvas.width;
-    const h = gCanvas.height;
-
-    // متحرک بدلتا ہوا جادوئی آسمان (Day -> Sunset -> Starry Night)
-    const skyCycle = (Math.sin(gTime) + 1) / 2; // 0 سے 1 کے درمیان
-    const grad = gCtx.createLinearGradient(0, 0, 0, h);
-    if (skyCycle < 0.35) {
-      // 1. گہری تاروں بھری رات اور چاند
-      grad.addColorStop(0, '#060814');
-      grad.addColorStop(1, '#1e1b4b');
-    } else if (skyCycle < 0.7) {
-      // 2. گلابی اور جامنی غروب آفتاب (Sunset)
-      grad.addColorStop(0, '#4c0519');
-      grad.addColorStop(0.5, '#831843');
-      grad.addColorStop(1, '#ea580c');
-    } else {
-      // 3. خوبصورت نیلی صبح اور دن
-      grad.addColorStop(0, '#0284c7');
-      grad.addColorStop(0.6, '#38bdf8');
-      grad.addColorStop(1, '#bae6fd');
-    }
-    gCtx.fillStyle = grad;
-    gCtx.fillRect(0, 0, w, h);
-
-    // پس منظر کے خوبصورت پہاڑ (Parallax Mountains)
-    gCtx.fillStyle = skyCycle < 0.4 ? 'rgba(15,23,42,0.8)' : 'rgba(30,41,59,0.4)';
-    gCtx.beginPath();
-    gCtx.moveTo(0, h - 80);
-    gCtx.lineTo(w * 0.3, h - 190);
-    gCtx.lineTo(w * 0.7, h - 130);
-    gCtx.lineTo(w, h - 210);
-    gCtx.lineTo(w, h);
-    gCtx.lineTo(0, h);
-    gCtx.fill();
-
-    // زمین (Open Ground)
-    gCtx.fillStyle = '#0f172a';
-    gCtx.fillRect(0, gPlayer.groundY + 18, w, h - (gPlayer.groundY + 18));
-    gCtx.strokeStyle = '#38bdf8';
-    gCtx.lineWidth = 3;
-    gCtx.beginPath();
-    gCtx.moveTo(0, gPlayer.groundY + 18);
-    gCtx.lineTo(w, gPlayer.groundY + 18);
-    gCtx.stroke();
-
-    // رکاوٹیں (Glowing Crystals)
-    gObstacles.forEach(ob => {
-      gCtx.fillStyle = '#f43f5e';
-      gCtx.beginPath();
-      gCtx.moveTo(ob.x, ob.y);
-      gCtx.lineTo(ob.x + ob.w / 2, ob.y - ob.h);
-      gCtx.lineTo(ob.x + ob.w, ob.y);
-      gCtx.fill();
-    });
-
-    // ہیرے اور صندوق
-    gCollectibles.forEach(col => {
-      if (col.type === 'chest') {
-        gCtx.font = '24px sans-serif';
-        gCtx.fillText('🎁', col.x - 12, col.y + 8);
-      } else {
-        gCtx.fillStyle = '#38bdf8';
-        gCtx.beginPath();
-        gCtx.arc(col.x, col.y, 8, 0, Math.PI * 2);
-        gCtx.fill();
-      }
-    });
-
-    // ہیرو / مہم جو پلیئر (Mystic Wanderer)
-    gCtx.save();
-    gCtx.translate(gPlayer.x, gPlayer.y);
-    // چمکتا ہوا ہالہ
-    gCtx.fillStyle = gPlayer.isGliding ? 'rgba(236,72,153,0.5)' : 'rgba(99,102,241,0.4)';
-    gCtx.beginPath();
-    gCtx.arc(0, 0, gPlayer.radius + 6, 0, Math.PI * 2);
-    gCtx.fill();
-
-    // جسم
-    gCtx.fillStyle = '#ffffff';
-    gCtx.beginPath();
-    gCtx.arc(0, 0, gPlayer.radius, 0, Math.PI * 2);
-    gCtx.fill();
-
-    // آنکھیں اور گلیڈر ونگز
-    gCtx.fillStyle = '#6366f1';
-    gCtx.fillRect(4, -4, 5, 5);
-    if (gPlayer.isGliding) {
-      gCtx.fillStyle = '#ec4899';
-      gCtx.beginPath();
-      gCtx.moveTo(-18, -4);
-      gCtx.lineTo(-32, -18);
-      gCtx.lineTo(0, -6);
-      gCtx.fill();
-    }
-    gCtx.restore();
-  }
-
-  function gameOver() {
-    gRunning = false;
-    document.getElementById('final-score').textContent = Math.floor(gScore);
-    document.getElementById('game-gameover').style.display = 'flex';
-  }
-
-  function reviveAndPlay() {
-    // دوبارہ کھیلتے وقت ایڈسٹیرا اسمارٹ لنک کھلے گا
-    window.open(SMART_LINK, '_blank');
-    document.getElementById('game-gameover').style.display = 'none';
-    initGame();
-  }
-
-  function exitGame() {
-    gRunning = false;
-    if (gAnimId) cancelAnimationFrame(gAnimId);
-    document.getElementById('game-overlay').style.display = 'none';
-  }
-</script>
 </body>
 </html>
