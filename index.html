@@ -497,21 +497,22 @@
         return `**Result:** **${math.result}**`;
       }
 
-      try {
-        const res = await fetch("https://text.pollinations.ai/", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            messages: [
-              {
-                role: "system",
-                content: "You are StudyNova AI, an accurate and comprehensive academic assistant. Answer questions directly, accurately, and naturally in the user's language. Never return generic placeholders."
-              },
-              { role: "user", content: promptText }
-            ],
-            model: "openai"
-          })
-        });
+        try {
+    const res = await fetch("https://text.pollinations.ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        messages: [
+          {
+            role: "system",
+            content: "You are StudyNova AI, an expert research assistant and academic writer. Always provide detailed, thorough, well-structured answers, complete research, essays, summaries, and step-by-step explanations in the user's language."
+          },
+          { role: "user", content: promptText }
+        ],
+        model: "openai-large"
+      })
+    });
+
 
         if (res.ok) {
           const text = await res.text();
