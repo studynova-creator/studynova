@@ -498,20 +498,8 @@
       }
 
         try {
-    const res = await fetch("https://text.pollinations.ai", + encodeURIComponent(promptText));
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: [
-          {
-            role: "system",
-            content: "You are StudyNova AI, an expert research assistant and academic writer. Always provide detailed, thorough, well-structured answers, complete research, essays, summaries, and step-by-step explanations in the user's language."
-          },
-          { role: "user", content: promptText }
-        ],
-        model: "openai-large"
-      })
-    });
+    const res = await fetch("https://text.pollinations.ai/" + encodeURIComponent(promptText));
+      
 
 
         if (res.ok) {
