@@ -498,7 +498,7 @@
       }
 
         try {
-    const res = await fetch("https://text.pollinations.ai", {
+    const res = await fetch("https://text.pollinations.ai", + encodeURIComponent(promptText));
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
