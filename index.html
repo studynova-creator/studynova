@@ -496,8 +496,14 @@
       if (math.isMath) {
         return `**Result:** **${math.result}**`;
       }
+      if (/image|draw|picture|graph|photo|تصویر|گراف/i.test(promptText)) {
+        const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(promptText);
+        return `![Generated Image](${imgUrl})`;
+      }
 
-        try {
+       
+      
+      try {
     const res = await fetch("https://text.pollinations.ai/" + encodeURIComponent(promptText));
       
 
