@@ -496,10 +496,38 @@
       if (math.isMath) {
         return `**Result:** **${math.result}**`;
       }
-      if (/image|draw|picture|graph|photo|تصویر|گراف/i.test(promptText)) {
-        const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(promptText);
-        return `![Generated Image](${imgUrl})`;
-      }
+      // 1. میڈیکل اور بائیولوجی کے ڈایاگرام
+   if (/anatomy|reproductive|uterus|ovary|urethra|menstrual|organ|medical|biology|disease|heart|brain|kidney|vein|artery|lung|stomach|طبی|میڈیکل|اعضاء|بیماری|تولیدی|بچہ دانی|ماہواری|پیشاب|جھلی|دل|دماغ|گردہ|شریان|ورید|پھیپھڑے/i.test(promptText)) {
+     const medicalPrompt = "professional colorful medical biology textbook anatomical cross-section diagram on pure white background, clearly labeled internal parts with pointer arrows, clinical educational illustration, safe for work: " + promptText;
+     const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(medicalPrompt) + "?nologo=true&enhance=true";
+     return `### 🧬 طبی و بائیولوجی ڈایاگرام (Medical & Anatomy Diagram)\n\n![Medical Diagram](${imgUrl})\n\n*نوٹ: اس ڈایاگرام کے تمام حصوں کے نام اور افعال جاننے کے لیے اسی موضوع کا نام لکھ کر سوال پوچھیں۔*`;
+   }
+
+   // 2. ریاضی اور ڈیٹا کے گراف
+   if (/graph|chart|plot|cycle|گراف|چارٹ|سائیکل/i.test(promptText)) {
+     const graphPrompt = "colorful educational textbook data graph chart on clean white background, clear lines, labels and numbers, infographic, no humans, safe for work: " + promptText;
+     const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(graphPrompt) + "?nologo=true&enhance=true";
+     return `### 📊 تعلیمی گراف / چارٹ (Educational Chart)\n\n![Educational Chart](${imgUrl})\n\n*نوٹ: اس گراف کی مکمل تحریری تفصیل سمجھنے کے لیے "اس کی تفصیل لکھیں" لکھ کر پوچھیں۔*`;
+   }
+
+   // 3. جنرل سائنس، فزکس، کیمسٹری کے ڈایاگرام
+   if (/diagram|structure|system|science|physics|chemistry|plant|cell|atom|circuit|ساخت|ڈایاگرام|سائنس|فزکس|کیمسٹری|پودا|خلیہ/i.test(promptText)) {
+     const sciencePrompt = "clean educational general science textbook diagram on white background, clear labels and arrows, neat illustration, no humans, safe for work: " + promptText;
+     const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(sciencePrompt) + "?nologo=true&enhance=true";
+     return `### 🔬 سائنسی ڈایاگرام (Science Diagram)\n\n![Science Diagram](${imgUrl})`;
+   }
+
+   // 4. عام تعلیمی تصاویر
+   if (/image|draw|picture|photo|تصویر/i.test(promptText)) {
+     const safeGeneralPrompt = "clean, safe for work, educational, family-friendly illustration: " + promptText;
+     const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(safeGeneralPrompt) + "?nologo=true&enhance=true";
+     return `![Generated Image](${imgUrl})`;
+   }
+
+
+      
+   }
+
 
        
       
