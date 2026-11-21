@@ -519,14 +519,6 @@
      const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(safePrompt) + "?nologo=true";
      return `![Generated Image](${imgUrl})`;
    }
-
-
-
-      
-   }
-
-
-       
       
       try {
     const res = await fetch("https://text.pollinations.ai/" + encodeURIComponent(promptText));
