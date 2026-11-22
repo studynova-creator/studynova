@@ -520,7 +520,7 @@
      return `![Generated Image](${imgUrl})`;
    }
       
-       try
+       try {
       const workerUrl = "https://misty-dream-dca7.friendbiojie.workers.dev";
       const res = await fetch(workerUrl, {
         method: "POST",
