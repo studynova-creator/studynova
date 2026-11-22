@@ -520,16 +520,20 @@
      return `![Generated Image](${imgUrl})`;
    }
       
-      try {
-    const res = await fetch("https://text.pollinations.ai/" + encodeURIComponent(promptText));
-      
+       try
+      const workerUrl = "https://misty-dream-dca7.friendbiojie.workers.dev";
+      const res = await fetch(workerUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: promptText })
+      });
 
+      if (res.ok) {
+        const data = await res.json();
+        if (data.reply && data.reply.trim()) return data.reply;
+      }
+    } catch (e) {}
 
-        if (res.ok) {
-          const text = await res.text();
-          if (text && text.trim()) return text;
-        }
-      } catch (e) {}
 
       if (isRtlString(promptText)) {
         return `آپ کا سوال موصول ہو چکا ہے۔ انٹرنیٹ کنکشن چیک کر کے دوبارہ ارسال کریں۔`;
