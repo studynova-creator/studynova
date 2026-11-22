@@ -496,29 +496,11 @@
       if (math.isMath) {
         return `**Result:** **${math.result}**`;
       }
-     if (/anatomy|reproductive|uterus|ovary|urethra|menstrual|organ|medical|biology|disease|heart|brain|kidney|vein|artery|lung|stomach|طبی|میڈیکل|اعضاء|بیماری|تولیدی|بچہ دانی|ماہواری|پیشاب|جھلی|دل|دماغ|گردہ/i.test(promptText)) {
-     const medicalPrompt = "professional colorful medical biology textbook anatomical diagram on white background, labeled parts with arrows, safe for work: " + promptText;
-     const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(medicalPrompt) + "?nologo=true";
-     return `![Medical Diagram](${imgUrl})`;
-   }
 
-   if (/graph|chart|plot|cycle|گراف|چارٹ|سائیکل/i.test(promptText)) {
-     const graphPrompt = "colorful educational textbook data graph chart on white background, clear lines and numbers, no humans, safe for work: " + promptText;
-     const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(graphPrompt) + "?nologo=true";
-     return `![Educational Chart](${imgUrl})`;
-   }
+              if (/anatomy|diagram|graph|chart|image|draw|organ|medical|disease|surgery|hand|heart|uterus|ovary/i.test(promptText) || /[\u0600-\u06FF]/.test(promptText)) {
+        promptText = "If this is a medical, anatomy, disease, diagram, or graph request, first draw a clean colorful labeled SVG diagram (width='100%' viewBox='0 0 400 300', raw <svg> tag directly without backticks) and then write a clear clinical explanation in the same language as the user for: " + promptText;
+      }
 
-   if (/diagram|structure|system|science|physics|chemistry|plant|cell|atom|circuit|ساخت|ڈایاگرام|سائنس|فزکس|کیمسٹری|پودا|خلیہ/i.test(promptText)) {
-     const sciencePrompt = "clean educational general science textbook diagram on white background, clear labels and arrows, no humans, safe for work: " + promptText;
-     const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(sciencePrompt) + "?nologo=true";
-     return `![Science Diagram](${imgUrl})`;
-   }
-
-   if (/image|draw|picture|photo|تصویر/i.test(promptText)) {
-     const safePrompt = "clean safe for work educational illustration: " + promptText;
-     const imgUrl = "https://" + "image.pollinations.ai/prompt/" + encodeURIComponent(safePrompt) + "?nologo=true";
-     return `![Generated Image](${imgUrl})`;
-   }
       
        try {
       const workerUrl = "https://misty-dream-dca7.friendbiojie.workers.dev";
